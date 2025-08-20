@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D Royal Real Estate</title>
+    <!-- Use Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-image: url('https://placehold.co/1920x1080/4F46E5/ffffff?text=Luxury+Home');
+            background-size: cover;
+            background-position: center;
+        }
+        .hidden-section {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+                <a href="#" class="text-2xl font-bold text-gray-900">D Royal Real Estate</a>
+            </div>
+            <div class="hidden md:flex space-x-8" id="desktop-nav">
+                <!-- Nav links will be dynamically updated by JS -->
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg py-4">
+            <!-- Mobile nav links will be dynamically updated by JS -->
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center justify-center text-center text-white pt-16">
+        <div class="bg-black bg-opacity0 p-8 rounded-xl max-w-2xl mx-auto shadow-2xl">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4">Find Your Dream Home with Us</h1>
+            <p class="text-lg sm:text-xl font-light mb-8">Your trusted partner in buying, selling, and managing properties.</p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center items-center">
+                <select id="role-selector" class="w-full sm:w-auto px-6 py-3 rounded-lg text-white bg-indigo-600 border border-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <option value="" disabled selected>I am here to...</option>
+                    <option value="buy-house">Buy a House</option>
+                    <option value="buy-land">Buy Land</option>
+                    <option value="sell">Sell My Property</option>
+                    <option value="rent">Rent a House</option>
+                    <option value="lease">Lease Commercial Space</option>
+                    <option value="invest">Invest in Real Estate</option>
+                    <option value="off-plan">Explore Off-Plan Projects</option>
+                    <option value="shortlet">Book a Shortlet Apartment</option>
+                    <option value="construction">Inquire About Construction</option>
+                    <option value="consulting">Get Consulting</option>
+                </select>
+                <a href="#main-content" id="explore-button" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 hidden">
+                    Explore
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Sections Container -->
+    <div id="main-content" class="min-h-screen">
+        <!-- The sections below are now initially hidden and controlled by JavaScript -->
+
+        <!-- Real Estate Consulting Section -->
+        <section id="consulting" class="py-16 sm:py-24 bg-white section-content hidden-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-gray-900 mb-12">Real Estate Consulting</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Book Appointment Form -->
+                    <div class="bg-gray-100 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Book an Appointment</h3>
+                        <form>
+                            <input type="text" placeholder="Full Name" class="w-full px-4 py-3 mb-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500">
+                            <input type="email" placeholder="Email Address" class="w-full px-4 py-3 mb-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500">
+                            <textarea rows="3" placeholder="Message" class="w-full px-4 py-3 mb-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500"></textarea>
+                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg shadow-md transition duration-300">Book Now</button>
+                        </form>
+                    </div>
+                    <!-- Case Studies -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Successful Deals</h3>
+                        <p class="text-gray-600 mb-4">Discover how we've helped clients achieve their real estate goals. Click below to see our case studies.</p>
+                        <a href="#" class="bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-300">View Case Studies</a>
+                    </div>
+                    <!-- Testimonials -->
+                    <div class="bg-gray-100 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Client Testimonials</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <p class="text-gray-700 italic">"D Royal Real Estate made the process of buying my first home so easy and stress-free. Highly recommend!"</p>
+                                <p class="text-right text-sm font-semibold mt-2">- Jane Doe</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <p class="text-gray-700 italic">"The team was incredibly knowledgeable and found the perfect investment property for me."</p>
+                                <p class="text-right text-sm font-semibold mt-2">- John Smith</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Section -->
+                <div class="mt-16 max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-semibold text-center text-gray-900 mb-6">FAQs</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                            <h4 class="font-bold text-gray-800">What is the typical sales process?</h4>
+                            <p class="text-gray-600 mt-2">Our process involves property valuation, listing, marketing, managing viewings, and handling negotiations until closing.</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                            <h4 class="font-bold text-gray-800">How do you value my property?</h4>
+                            <p class="text-gray-600 mt-2">We use a combination of market analysis, recent sales data in your area, and the unique features of your property to provide an accurate valuation.</p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                            <h4 class="font-bold text-gray-800">Can you help with legal documents?</h4>
+                            <p class="text-gray-600 mt-2">Yes, we guide you through all necessary legal and title documentation to ensure a smooth and secure transaction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sell Your Property Section -->
+        <section id="sell" class="py-16 sm:py-24 bg-gray-100 section-content hidden-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-8">Sell Your Property</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-8">Ready to sell? We make the process simple and transparent. Fill out the form below to get started or request a free valuation.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Property Details Form -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Upload Property Details</h3>
+                        <form>
+                            <input type="text" placeholder="Property Address" class="w-full px-4 py-3 mb-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500">
+                            <select class="w-full px-4 py-3 mb-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500">
+                                <option>House</option>
+                                <option>Apartment</option>
+                                <option>Land</option>
+                            </select>
+                            <textarea rows="3" placeholder="Property Description" class="w-full px-4 py-3 mb-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500"></textarea>
+                            <label for="photos" class="block text-gray-700 font-semibold mb-2 text-left">Photos & Documents</label>
+                            <input type="file" id="photos" name="photos" multiple class="w-full mb-4">
+                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg shadow-md transition duration-300">Submit Property</button>
+                        </form>
+                    </div>
+                    <!-- Instant Valuation Form -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Instant Property Valuation</h3>
+                        <p class="text-gray-600 mb-4 text-left">Provide some quick details for an estimated valuation.</p>
+                        <form>
+                            <input type="text" placeholder="Property Address" class="w-full px-4 py-3 mb-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500">
+                            <input type="text" placeholder="Property Type (e.g., 3-bed villa)" class="w-full px-4 py-3 mb-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500">
+                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg shadow-md transition duration-300">Request Valuation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buy Section (House/Land/Off-Plan) -->
+        <section id="buy" class="py-16 sm:py-24 bg-white section-content hidden-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-gray-900 mb-12">Properties for Sale</h2>
+                
+                <!-- Filters -->
+                <div class="flex flex-wrap justify-center space-x-2 sm:space-x-4 mb-8">
+                    <button id="filter-houses" class="bg-indigo-600 text-white py-2 px-4 rounded-full font-semibold hover:bg-indigo-700 transition">Houses</button>
+                    <button id="filter-land" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-full font-semibold hover:bg-gray-300 transition">Land</button>
+                    <button id="filter-off-plan" class="bg-gray-200 text-gray-800 py-2 px-4 rounded-full font-semibold hover:bg-gray-300 transition">Off-Plan</button>
+                </div>
+
+                <!-- Property Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- House Card 1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden property-card house-card">
+                        <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/818CF8/ffffff?text=Modern+Villa" alt="Modern Villa">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-gray-900">Modern Villa in Beverly Hills</h3>
+                            <p class="text-gray-600 text-sm mb-4">123 Luxury Lane, Beverly Hills, CA</p>
+                            <div class="flex items-center justify-between text-lg font-semibold text-gray-800">
+                                <span>$2,500,000</span>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">Mortgage/Financing available.</p>
+                            <div class="mt-4 flex space-x-2">
+                                <a href="#" class="bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-300">View Details</a>
+                                <button class="bg-gray-200 text-gray-800 text-sm font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition">Book Inspection</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Land Card -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden property-card land-card hidden-card">
+                        <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/F97316/ffffff?text=Developing+Land" alt="Developing Land">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-gray-900">Prime Land for Development</h3>
+                            <p class="text-gray-600 text-sm mb-4">Near Tech Hub, Silicon Valley, CA</p>
+                            <div class="flex items-center justify-between text-lg font-semibold text-gray-800">
+                                <span>$950,000</span>
+                            </div>
+                            <div class="mt-4 flex space-x-2">
+                                <a href="#" class="bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-300">View Details</a>
+                                <a href="#" class="bg-gray-200 text-gray-800 text-sm font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition">Area Guide</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Off-Plan Project Card -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden property-card off-plan-card hidden-card">
+                        <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/06B6D4/ffffff?text=Off-Plan+Project" alt="Off-Plan Project">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-gray-900">The Modern Residences (Off-Plan)</h3>
+                            <p class="text-gray-600 text-sm mb-4">567 Skyline Drive, Houston, TX</p>
+                            <div class="flex items-center justify-between text-lg font-semibold text-gray-800">
+                                <span>Starting from $600,000</span>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">Estimated Completion: Q4 2025</p>
+                            <div class="mt-4 flex space-x-2">
+                                <a href="#" class="bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-300">View Plans</a>
+                                <button class="bg-gray-200 text-gray-800 text-sm font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition">Secure Interest</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lease & Rental Section -->
+        <section id="lease" class="py-16 sm:py-24 bg-gray-100 section-content hidden-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-gray-900 mb-12">Lease & Rental Options</h2>
+                
+                <!-- Search & Filters -->
+                <div class="flex justify-center mb-8">
+                    <input type="text" placeholder="Search by location, price..." class="w-full max-w-lg px-4 py-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500">
+                </div>
+
+                <!-- Listings Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Shortlet Card -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden property-card shortlet-card">
+                        <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/94A3B8/ffffff?text=Shortlet+Apartment" alt="Shortlet Apartment">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-gray-900">Luxury Shortlet in Downtown</h3>
+                            <p class="text-gray-600 text-sm mb-4">Fully furnished, all bills included.</p>
+                            <div class="flex items-center justify-between text-lg font-semibold text-gray-800">
+                                <span>$150 / Night</span>
+                            </div>
+                            <div class="mt-4 flex space-x-2">
+                                <button class="bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-300">Book Now</button>
+                                <button class="bg-gray-200 text-gray-800 text-sm font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition">Photo Gallery</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rental House Card -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden property-card rental-card">
+                        <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/818CF8/ffffff?text=Rental+House" alt="Rental House">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-gray-900">Spacious Rental House</h3>
+                            <p class="text-gray-600 text-sm mb-4">Quiet neighborhood, 4 beds, 2 baths.</p>
+                            <div class="flex items-center justify-between text-lg font-semibold text-gray-800">
+                                <span>$2,000 / Month</span>
+                            </div>
+                            <div class="mt-4 flex space-x-2">
+                                <button class="bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-300">Schedule Viewing</button>
+                                <button class="bg-gray-200 text-gray-800 text-sm font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition">Request Callback</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Commercial Space Card -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden property-card commercial-card hidden-card">
+                        <img class="w-full h-48 object-cover" src="https://placehold.co/600x400/4B5563/ffffff?text=Office+Space" alt="Office Space">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2 text-gray-900">Modern Office Space for Lease</h3>
+                            <p class="text-gray-600 text-sm mb-4">Prime business district location.</p>
+                            <div class="flex items-center justify-between text-lg font-semibold text-gray-800">
+                                <span>Negotiable</span>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">Terms: 2-5 year lease, customizable space.</p>
+                            <div class="mt-4 flex space-x-2">
+                                <button class="bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-300">View Details</button>
+                                <button class="bg-gray-200 text-gray-800 text-sm font-semibold py-2 px-4 rounded-lg hover:bg-gray-300 transition">Quick Inquiry</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment Options Section -->
+        <section id="investment" class="py-16 sm:py-24 bg-white section-content hidden-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-8">Investment Opportunities</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-8">Explore high-yield investment options with D Royal Real Estate. From shortlet apartments to fractional investments, we help you maximize your returns.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- ROI Calculator -->
+                    <div class="bg-gray-100 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">ROI Calculator</h3>
+                        <form>
+                            <input type="number" placeholder="Property Price ($)" class="w-full px-4 py-3 mb-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500">
+                            <input type="number" placeholder="Expected Monthly Rent ($)" class="w-full px-4 py-3 mb-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500">
+                            <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg shadow-md transition duration-300">Calculate ROI</button>
+                        </form>
+                    </div>
+                    <!-- Download Brochure -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg flex flex-col justify-center items-center">
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-4">Download Investment Brochure</h3>
+                        <p class="text-gray-600 mb-4">Get a detailed guide on our investment packages, ROI analysis, and joint venture opportunities.</p>
+                        <a href="#" class="bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-300">Download Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Building Construction & Renovation Section -->
+        <section id="construction" class="py-16 sm:py-24 bg-gray-100 section-content hidden-section">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-center text-gray-900 mb-8">Building & Renovation Services</h2>
+                <p class="text-lg text-gray-600 text-center mb-8">From ground-up construction to modern renovations, we bring your vision to life.</p>
+                <!-- Before & After Gallery -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img class="w-full h-64 object-cover" src="https://placehold.co/600x400/E5E7EB/ffffff?text=Before+Renovation" alt="Before Renovation">
+                        <img class="w-full h-64 object-cover mt-2" src="https://placehold.co/600x400/3B82F6/ffffff?text=After+Renovation" alt="After Renovation">
+                        <div class="p-4 text-center">
+                            <p class="font-semibold text-gray-900">Project: Kitchen Remodel</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img class="w-full h-64 object-cover" src="https://placehold.co/600x400/E5E7EB/ffffff?text=Before+Facade" alt="Before Facade">
+                        <img class="w-full h-64 object-cover mt-2" src="https://placehold.co/600x400/3B82F6/ffffff?text=After+Facade" alt="After Facade">
+                        <div class="p-4 text-center">
+                            <p class="font-semibold text-gray-900">Project: Building Facade</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <img class="w-full h-64 object-cover" src="https://placehold.co/600x400/E5E7EB/ffffff?text=Before+Interior" alt="Before Interior">
+                        <img class="w-full h-64 object-cover mt-2" src="https://placehold.co/600x400/3B82F6/ffffff?text=After+Interior" alt="After Interior">
+                        <div class="p-4 text-center">
+                            <p class="font-semibold text-gray-900">Project: Home Interior</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="max-w-xl mx-auto text-center">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Request a Custom Project Quote</h3>
+                    <form class="bg-white p-8 rounded-xl shadow-lg">
+                        <input type="text" placeholder="Project Type (e.g., New build, Renovation)" class="w-full px-4 py-3 mb-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500">
+                        <textarea rows="3" placeholder="Project Details" class="w-full px-4 py-3 mb-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-indigo-500"></textarea>
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg shadow-md transition duration-300">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Default message when no option is selected -->
+        <section id="default-message" class="py-16 sm:py-24 text-center">
+             <div class="max-w-xl mx-auto px-4">
+                <p class="text-xl text-gray-500">Please select an option from the dropdown above to view the services we offer.</p>
+             </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2023 D Royal Real Estate. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const roleSelector = document.getElementById('role-selector');
+            const sections = document.querySelectorAll('.section-content');
+            const defaultMessage = document.getElementById('default-message');
+            const desktopNav = document.getElementById('desktop-nav');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const exploreButton = document.getElementById('explore-button');
+            const allNavLinks = document.querySelectorAll('#desktop-nav a, #mobile-menu a');
+            
+            // Define the mapping of role to section IDs and nav links
+            const roleMap = {
+                'buy-house': {
+                    sections: ['buy'],
+                    nav: [{text: 'Buy a House', href: '#buy-properties'}]
+                },
+                'buy-land': {
+                    sections: ['buy'],
+                    nav: [{text: 'Buy Land', href: '#buy-properties'}]
+                },
+                'sell': {
+                    sections: ['sell'],
+                    nav: [{text: 'Sell Your Property', href: '#sell'}]
+                },
+                'rent': {
+                    sections: ['lease'],
+                    nav: [{text: 'Rent a House', href: '#lease'}]
+                },
+                'lease': {
+                    sections: ['lease'],
+                    nav: [{text: 'Lease Commercial Space', href: '#lease'}]
+                },
+                'invest': {
+                    sections: ['investment'],
+                    nav: [{text: 'Investment Options', href: '#investment'}]
+                },
+                'off-plan': {
+                    sections: ['buy'],
+                    nav: [{text: 'Off-Plan Projects', href: '#buy'}]
+                },
+                'shortlet': {
+                    sections: ['lease'],
+                    nav: [{text: 'Shortlet Apartments', href: '#lease'}]
+                },
+                'construction': {
+                    sections: ['construction'],
+                    nav: [{text: 'Construction & Renovation', href: '#construction'}]
+                },
+                'consulting': {
+                    sections: ['consulting'],
+                    nav: [{text: 'Consulting', href: '#consulting'}]
+                },
+            };
+
+            const updateView = () => {
+                const selectedRole = roleSelector.value;
+                
+                // Hide all sections and nav links initially
+                sections.forEach(section => section.classList.add('hidden-section'));
+                desktopNav.innerHTML = '';
+                mobileMenu.innerHTML = '';
+                defaultMessage.classList.add('hidden');
+                exploreButton.classList.add('hidden');
+
+                if (selectedRole) {
+                    const roleInfo = roleMap[selectedRole];
+                    
+                    // Show relevant sections
+                    roleInfo.sections.forEach(sectionId => {
+                        const section = document.getElementById(sectionId);
+                        if (section) {
+                            section.classList.remove('hidden-section');
+                        }
+                    });
+
+                    // Update navigation based on selected role
+                    roleInfo.nav.forEach(link => {
+                        const newLink = `<a href="${link.href}" class="text-gray-600 hover:text-indigo-600 transition duration-300">${link.text}</a>`;
+                        desktopNav.innerHTML += newLink;
+                        mobileMenu.innerHTML += `<a href="${link.href}" class="block px-4 py-2 text-gray-600 hover:text-indigo-600">${link.text}</a>`;
+                    });
+
+                    // Add the "Explore" button and make it a smooth scroll link
+                    exploreButton.classList.remove('hidden');
+                    exploreButton.href = `#${roleInfo.sections[0]}`;
+                    
+                } else {
+                    defaultMessage.classList.remove('hidden');
+                }
+            };
+            
+            // Initial call to set up the view
+            updateView();
+
+            // Listen for changes in the dropdown
+            roleSelector.addEventListener('change', updateView);
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                         targetElement.scrollIntoView({
+                             behavior: 'smooth'
+                         });
+                    }
+                });
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenuDiv = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenuDiv.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
